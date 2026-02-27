@@ -1,0 +1,203 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f0e8;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(100, 76, 51, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(243, 196, 85, 0.1) 0%, transparent 50%);
+  padding: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 1.5px solid #e8dcc8;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(100, 76, 51, 0.12);
+  overflow: hidden;
+}
+
+.cardTop {
+  padding: 2.5rem 2.5rem 2rem;
+  text-align: center;
+  background: linear-gradient(160deg, #fdf8f0 0%, #ffffff 100%);
+  border-bottom: 1.5px solid #f0e8d8;
+}
+
+.logoWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.titulo {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #2d1f0e;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.3px;
+}
+
+.subtitulo {
+  font-size: 0.83rem;
+  color: #8a7055;
+  margin: 0;
+}
+
+.form {
+  padding: 2rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #644c33;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #fdf8f0;
+  border: 1.5px solid #e8dcc8;
+  border-radius: 12px;
+  padding: 0 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.inputWrap:focus-within {
+  border-color: #b4934d;
+  box-shadow: 0 0 0 3px rgba(180, 147, 77, 0.12);
+  background: #ffffff;
+}
+
+.inputWrap ion-icon {
+  color: #b4934d;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  color: #2d1f0e;
+  outline: none;
+  padding: 0.85rem 0;
+  width: 100%;
+}
+
+.input::placeholder {
+  color: #c4a97a;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.togglePass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #b4934d;
+  font-size: 1rem;
+  padding: 0;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.togglePass:hover {
+  color: #644c33;
+}
+
+.errorMsg {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff2f2;
+  border: 1.5px solid #fca5a5;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  color: #b91c1c;
+  font-size: 0.82rem;
+  font-weight: 600;
+  animation: fadeIn 0.2s ease;
+}
+
+.errorMsg ion-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.btnSubmit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.9rem;
+  margin-top: 0.4rem;
+  background: #644c33;
+  color: #f3c455;
+  border: none;
+  border-radius: 12px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s;
+  letter-spacing: 0.2px;
+}
+
+.btnSubmit ion-icon {
+  font-size: 1.1rem;
+}
+
+.btnSubmit:hover:not(:disabled) {
+  background: #4e3a26;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(100, 76, 51, 0.25);
+}
+
+.btnSubmit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .card { border-radius: 18px; }
+  .cardTop { padding: 2rem 1.5rem 1.5rem; }
+  .form { padding: 1.5rem 1.5rem 2rem; }
+}

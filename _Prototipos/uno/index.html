@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>M Importaciones</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="topbar">
+      <div class="logo">
+        <img src="logo.png" alt="M Importaciones" />
+      </div>
+
+      <div class="nav-scroll-wrap" id="trackWrap">
+        <button class="nav-arrow left" id="arrowLeft">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </button>
+        <nav class="navbar-track" id="navTrack">
+          <button class="cat-btn active" data-cat="nuevos">
+            <ion-icon name="phone-portrait-outline"></ion-icon>iPhone Nuevos
+          </button>
+          <button class="cat-btn" data-cat="usados">
+            <ion-icon name="refresh-outline"></ion-icon>iPhone Usados
+          </button>
+          <button class="cat-btn" data-cat="mac">
+            <ion-icon name="laptop-outline"></ion-icon>Mac &amp; iPad
+          </button>
+          <button class="cat-btn" data-cat="watch">
+            <ion-icon name="watch-outline"></ion-icon>Watch &amp; AirPods
+          </button>
+          <button class="cat-btn" data-cat="accesorios">
+            <ion-icon name="headset-outline"></ion-icon>Accesorios
+          </button>
+          <button class="cat-btn" data-cat="android">
+            <ion-icon name="logo-android"></ion-icon>Android
+          </button>
+        </nav>
+        <button class="nav-arrow right" id="arrowRight">
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
+
+      <div class="topbar-right">
+        <button class="btn-icon search-toggle" id="searchToggle" aria-label="Buscar">
+          <ion-icon name="search-outline"></ion-icon>
+        </button>
+        <a href="https://wa.me/TUNUMERO" class="btn-whatsapp" target="_blank">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+          <span>WhatsApp</span>
+        </a>
+        <button class="mobile-menu-btn" id="menuToggle" aria-label="Abrir menu">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-bar-dropdown" id="searchBar">
+      <div class="search-bar-inner">
+        <ion-icon name="search-outline"></ion-icon>
+        <input type="text" placeholder="Buscar producto..." class="search-input" id="searchInput" autocomplete="off" />
+        <button class="search-close" id="searchClose">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-inner">
+      <div class="mobile-nav-header">
+        <img src="logo.png" alt="M Importaciones" />
+        <button class="mobile-close-btn" id="menuClose">
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+      <div class="mobile-search-wrap">
+        <div class="search-wrapper">
+          <ion-icon name="search-outline"></ion-icon>
+          <input type="text" placeholder="Buscar producto..." class="search-input" id="searchInputMobile" autocomplete="off" />
+        </div>
+      </div>
+      <nav class="mobile-nav-links">
+        <button class="mob-cat-btn active" data-cat="nuevos">
+          <ion-icon name="phone-portrait-outline"></ion-icon>iPhone Nuevos
+        </button>
+        <button class="mob-cat-btn" data-cat="usados">
+          <ion-icon name="refresh-outline"></ion-icon>iPhone Usados
+        </button>
+        <button class="mob-cat-btn" data-cat="mac">
+          <ion-icon name="laptop-outline"></ion-icon>Mac &amp; iPad
+        </button>
+        <button class="mob-cat-btn" data-cat="watch">
+          <ion-icon name="watch-outline"></ion-icon>Watch &amp; AirPods
+        </button>
+        <button class="mob-cat-btn" data-cat="accesorios">
+          <ion-icon name="headset-outline"></ion-icon>Accesorios
+        </button>
+        <button class="mob-cat-btn" data-cat="android">
+          <ion-icon name="logo-android"></ion-icon>Android
+        </button>
+      </nav>
+      <a href="https://wa.me/TUNUMERO" class="btn-whatsapp mobile-wa" target="_blank">
+        <ion-icon name="logo-whatsapp"></ion-icon>
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <section class="hero-banner">
+    <div class="hero-content">
+      <span class="hero-tag">Stock actualizado</span>
+      <h1>Los mejores precios<br>en tecnologia Apple</h1>
+      <p class="hero-sub">Stock disponible para entrega inmediata. Precios sin competencia.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/TUNUMERO" class="btn-hero-primary" target="_blank">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+          Consultar por WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="hero-chips">
+      <div class="chip">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <div><strong>Originales</strong><span>100% garantizados</span></div>
+      </div>
+      <div class="chip">
+        <ion-icon name="cube-outline"></ion-icon>
+        <div><strong>Stock real</strong><span>Entrega inmediata</span></div>
+      </div>
+      <div class="chip">
+        <ion-icon name="flash-outline"></ion-icon>
+        <div><strong>Precios</strong><span>Competitivos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <p class="results-count"><strong id="countNum">5</strong> productos encontrados</p>
+      </div>
+      <div class="toolbar-right">
+        <div class="filter-group">
+          <button class="filter-btn active" data-sort="asc">
+            <ion-icon name="arrow-up-outline"></ion-icon>Menor precio
+          </button>
+          <button class="filter-btn" data-sort="desc">
+            <ion-icon name="arrow-down-outline"></ion-icon>Mayor precio
+          </button>
+          <button class="filter-btn" data-sort="az">
+            <ion-icon name="text-outline"></ion-icon>A-Z
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <div class="prod-card" data-name="iphone 14" data-price="600">
+        <div class="prod-img">
+          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone14-midnight-select-202209?wid=470&hei=556&fmt=png-alpha" alt="iPhone 14" loading="lazy"/>
+          <span class="badge">Nuevo</span>
+          <div class="img-overlay"><button class="btn-quick"><ion-icon name="eye-outline"></ion-icon>Vista rapida</button></div>
+        </div>
+        <div class="prod-body">
+          <span class="prod-sub">iPhone 14</span>
+          <h3>128 GB</h3>
+          <div class="colores"><span class="color-tag" style="--c:#1c1c1e">Midnight</span></div>
+          <div class="prod-footer">
+            <div class="precio"><small>Precio</small><strong>USD 600</strong></div>
+            <button class="btn-consultar"><ion-icon name="chatbubble-ellipses-outline"></ion-icon>Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="iphone 15" data-price="660">
+        <div class="prod-img">
+          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone15-black-select-202309?wid=470&hei=556&fmt=png-alpha" alt="iPhone 15" loading="lazy"/>
+          <span class="badge">Nuevo</span>
+          <div class="img-overlay"><button class="btn-quick"><ion-icon name="eye-outline"></ion-icon>Vista rapida</button></div>
+        </div>
+        <div class="prod-body">
+          <span class="prod-sub">iPhone 15</span>
+          <h3>128 GB</h3>
+          <div class="colores">
+            <span class="color-tag" style="--c:#1c1c1e">Black</span>
+            <span class="color-tag" style="--c:#4a90d9">Blue</span>
+          </div>
+          <div class="prod-footer">
+            <div class="precio"><small>Precio</small><strong>USD 660</strong></div>
+            <button class="btn-consultar"><ion-icon name="chatbubble-ellipses-outline"></ion-icon>Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card" data-name="iphone 16" data-price="770">
+        <div class="prod-img">
+          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone16-pink-select-202409?wid=470&hei=556&fmt=png-alpha" alt="iPhone 16" loading="lazy"/>
+          <span class="badge">Nuevo</span>
+          <div class="img-overlay"><button class="btn-quick"><ion-icon name="eye-outline"></ion-icon>Vista rapida</button></div>
+        </div>
+        <div class="prod-body">
+          <span class="prod-sub">iPhone 16</span>
+          <h3>128 GB</h3>
+          <div class="colores">
+            <span class="color-tag" style="--c:#f2a7bb">Pink</span>
+            <span class="color-tag" style="--c:#f5f5f0">White</span>
+            <span class="color-tag" style="--c:#3d6be0">Ultramarine</span>
+            <span class="color-tag" style="--c:#1c1c1e">Black</span>
+            <span class="color-tag" style="--c:#4a8c87">Teal</span>
+          </div>
+          <div class="prod-footer">
+            <div class="precio"><small>Precio</small><strong>USD 770</strong></div>
+            <button class="btn-consultar"><ion-icon name="chatbubble-ellipses-outline"></ion-icon>Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card pro" data-name="iphone 17 pro" data-price="1320">
+        <div class="prod-img">
+          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone17-pro-black-titanium-select?wid=470&hei=556&fmt=png-alpha" alt="iPhone 17 Pro" loading="lazy"/>
+          <span class="badge pro-badge">Pro</span>
+          <div class="img-overlay"><button class="btn-quick"><ion-icon name="eye-outline"></ion-icon>Vista rapida</button></div>
+        </div>
+        <div class="prod-body">
+          <span class="prod-sub">iPhone 17 Pro</span>
+          <h3>256 GB</h3>
+          <div class="colores">
+            <span class="color-tag" style="--c:#c06030">Cosmic Orange</span>
+            <span class="color-tag" style="--c:#1a3a6e">Deep Blue</span>
+            <span class="color-tag" style="--c:#d8d8d8">Silver</span>
+          </div>
+          <div class="prod-footer">
+            <div class="precio"><small>Precio</small><strong>USD 1,320</strong></div>
+            <button class="btn-consultar"><ion-icon name="chatbubble-ellipses-outline"></ion-icon>Consultar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="prod-card pro" data-name="iphone 17 pro max" data-price="1420">
+        <div class="prod-img">
+          <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone17-pro-max-black-titanium-select?wid=470&hei=556&fmt=png-alpha" alt="iPhone 17 Pro Max" loading="lazy"/>
+          <span class="badge pro-badge">Pro Max</span>
+          <div class="img-overlay"><button class="btn-quick"><ion-icon name="eye-outline"></ion-icon>Vista rapida</button></div>
+        </div>
+        <div class="prod-body">
+          <span class="prod-sub">iPhone 17 Pro Max</span>
+          <h3>256 GB</h3>
+          <div class="colores">
+            <span class="color-tag" style="--c:#c06030">Cosmic Orange</span>
+            <span class="color-tag" style="--c:#1a3a6e">Deep Blue</span>
+            <span class="color-tag" style="--c:#d8d8d8">Silver</span>
+          </div>
+          <div class="prod-footer">
+            <div class="precio"><small>Precio</small><strong>USD 1,420</strong></div>
+            <button class="btn-consultar"><ion-icon name="chatbubble-ellipses-outline"></ion-icon>Consultar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="empty-state" id="emptyState" style="display:none">
+      <ion-icon name="search-outline"></ion-icon>
+      <p>No se encontraron productos</p>
+    </div>
+  </main>
+
+  <section class="trust-section">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <h4>Originales garantizados</h4>
+        <p>Todos nuestros equipos son 100% originales con garantia de fabrica.</p>
+      </div>
+      <div class="trust-item">
+        <ion-icon name="cube-outline"></ion-icon>
+        <h4>Stock real disponible</h4>
+        <p>Lo que ves en la lista esta disponible para entrega inmediata.</p>
+      </div>
+      <div class="trust-item">
+        <ion-icon name="headset-outline"></ion-icon>
+        <h4>Atencion personalizada</h4>
+        <p>Te asesoramos para encontrar el equipo ideal segun tu necesidad.</p>
+      </div>
+      <div class="trust-item">
+        <ion-icon name="flash-outline"></ion-icon>
+        <h4>Precios competitivos</h4>
+        <p>Encontra los mejores precios del mercado con stock garantizado.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="M Importaciones" />
+        <p>Los mejores precios en tecnologia Apple con stock garantizado.</p>
+      </div>
+      <div class="footer-nav">
+        <h5>Categorias</h5>
+        <ul>
+          <li><a href="#">iPhone Nuevos</a></li>
+          <li><a href="#">iPhone Usados</a></li>
+          <li><a href="#">Mac &amp; iPad</a></li>
+          <li><a href="#">Watch &amp; AirPods</a></li>
+          <li><a href="#">Accesorios</a></li>
+          <li><a href="#">Android</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h5>Contacto</h5>
+        <a href="https://wa.me/TUNUMERO" class="footer-wa" target="_blank">
+          <ion-icon name="logo-whatsapp"></ion-icon>WhatsApp
+        </a>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+          <a href="#" aria-label="Email"><ion-icon name="mail-outline"></ion-icon></a>
+          <a href="#" aria-label="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>M Importaciones &copy; 2025. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/TUNUMERO" class="fab-whatsapp" target="_blank" aria-label="WhatsApp">
+    <ion-icon name="logo-whatsapp"></ion-icon>
+  </a>
+
+  <script src="main.js"></script>
+</body>
+</html>

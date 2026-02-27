@@ -9,9 +9,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "formidable": "^3.5.4",
+    "iron-session": "^8.0.4",
+    "mysql2": "^3.18.2",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "babel-plugin-react-compiler": "1.0.0",

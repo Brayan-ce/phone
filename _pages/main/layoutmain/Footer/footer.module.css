@@ -1,0 +1,144 @@
+.footer {
+  background: #644c33;
+}
+
+.footerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footerBrand img {
+  height: 36px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.footerBrand p {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  max-width: 280px;
+}
+
+.footerNav h5,
+.footerContact h5 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.2rem;
+}
+
+.footerNav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footerNav ul li a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+
+.footerNav ul li a:hover { color: #f3c455; }
+
+.footerWa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #22c55e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s;
+}
+
+.footerWa:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.footerSocial {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footerSocial a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e5c46f;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.footerSocial a:hover {
+  background: #f3c455;
+  color: #644c33;
+  border-color: #f3c455;
+}
+
+.footerBottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+}
+
+.footerBottom p {
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 0.75rem;
+}
+
+.fabWhatsapp {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 1.8rem;
+  z-index: 250;
+  width: 58px;
+  height: 58px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  text-decoration: none;
+  box-shadow: 0 6px 28px rgba(34, 197, 94, 0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fabWhatsapp:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 10px 36px rgba(34, 197, 94, 0.55);
+}
+
+@media (max-width: 1024px) {
+  .footerInner { grid-template-columns: 1fr 1fr; }
+  .footerBrand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 680px) {
+  .footerInner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.5rem 1.5rem; }
+  .footerBrand { grid-column: auto; }
+  .footerBottom { padding: 1.25rem 1.5rem; }
+  .fabWhatsapp { bottom: 1.2rem; right: 1.2rem; width: 52px; height: 52px; font-size: 1.5rem; }
+}
