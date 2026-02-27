@@ -11,7 +11,6 @@ const db = mysql.createPool({
 export default db;
 */
 // lib/db.ts o lib/database.ts
-import mysql from 'mysql2/promise';
 const db = mysql.createPool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
