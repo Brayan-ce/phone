@@ -1,21 +1,20 @@
-// app/(main)/layout.jsx
+import { Suspense } from "react";
 import ClienteWrapper from "@/_EXTRAS/LadoCliente/ClienteWraper";
 import Header from "@/_pages/main/layoutmain/Header/header";
 import Footer from "@/_pages/main/layoutmain/Footer/footer";
+
 export default function MainLayout({ children }) {
   return (
     <>
-      <div>
+      <Suspense>
         <ClienteWrapper>
-          <Header></Header>
+          <Header />
         </ClienteWrapper>
-      </div>
+      </Suspense>
       {children}
-      <div>
-        <ClienteWrapper>
-          <Footer></Footer>
-        </ClienteWrapper>
-      </div>
+      <ClienteWrapper>
+        <Footer />
+      </ClienteWrapper>
     </>
   );
 }
