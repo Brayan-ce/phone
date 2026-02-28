@@ -9,10 +9,7 @@ export async function getFooterData() {
   const [config] = await db.execute(
     `SELECT clave, valor FROM config_sitio WHERE clave IN (
       'whatsapp_numero',
-      'footer_texto',
-      'instagram_url',
-      'facebook_url',
-      'email'
+      'footer_texto'
     )`
   );
   const cfg = {};

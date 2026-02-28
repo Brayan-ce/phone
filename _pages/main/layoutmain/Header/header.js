@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { getCategorias, getConfigSitio, buscarProductos } from "./servidor";
 import styles from "./header.module.css";
 
@@ -9,6 +9,9 @@ const IMAGE_BASE = process.env.NEXT_PUBLIC_UPLOADS_URL || "/uploads";
 
 export default function Header() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const catActiva = searchParams.get("cat");
+
   const trackRef = useRef(null);
   const wrapRef = useRef(null);
   const searchInputRef = useRef(null);
@@ -16,7 +19,6 @@ export default function Header() {
 
   const [categorias, setCategorias] = useState([]);
   const [config, setConfig] = useState({});
-  const [catActiva, setCatActiva] = useState("nuevos");
   const [atStart, setAtStart] = useState(true);
   const [atEnd, setAtEnd] = useState(false);
   const [hasOverflow, setHasOverflow] = useState(false);
@@ -35,7 +37,8 @@ export default function Header() {
     cargarDatos();
   }, []);
 
-  const waNum = config?.whatsapp_numero || "TUNUMERO";
+  const waNum = config?.whatsapp_numero;
+  const waLink = waNum ? `https://wa.me/${waNum}` : null;
 
   function updateArrows() {
     const t = trackRef.current;
@@ -128,7 +131,7 @@ export default function Header() {
   }
 
   function handleCat(slug) {
-    setCatActiva(slug);
+    router.push(`/?cat=${slug}`);
     setMobileOpen(false);
   }
 
@@ -139,7 +142,9 @@ export default function Header() {
       <header className={styles.header}>
         <div className={styles.topbar}>
           <div className={styles.logo}>
-            <img src="/logo.png" alt="M Importaciones" />
+            <button onClick={() => router.push("/")} className={styles.logoBtn} aria-label="Ir al inicio">
+              <img src="/logo.png" alt="M Importaciones" />
+            </button>
           </div>
 
           <div
@@ -229,10 +234,7 @@ export default function Header() {
                             <li key={p.id}>
                               <button className={styles.searchItem} onClick={() => goToProduct(p.id)}>
                                 <div className={styles.searchItemImg}>
-                                  <img
-                                    src={`${IMAGE_BASE}/${p.imagen_principal}`}
-                                    alt={p.nombre}
-                                  />
+                                  <img src={`${IMAGE_BASE}/${p.imagen_principal}`} alt={p.nombre} />
                                 </div>
                                 <div className={styles.searchItemInfo}>
                                   <span className={styles.searchItemCat}>{p.categoria_nombre}</span>
@@ -259,15 +261,17 @@ export default function Header() {
               </div>
             </div>
 
-            <a
-              href={`https://wa.me/${waNum}`}
-              className={styles.btnWhatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ion-icon name="logo-whatsapp" />
-              <span>WhatsApp</span>
-            </a>
+            {waLink && (
+              <a
+                href={waLink}
+                className={styles.btnWhatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ion-icon name="logo-whatsapp" />
+                <span>WhatsApp</span>
+              </a>
+            )}
             <button
               className={styles.mobileMenuBtn}
               onClick={() => setMobileOpen(true)}
@@ -286,11 +290,7 @@ export default function Header() {
         <div className={styles.mobileNavInner}>
           <div className={styles.mobileNavHeader}>
             <img src="/logo.png" alt="M Importaciones" />
-            <button
-              className={styles.mobileCloseBtn}
-              onClick={() => setMobileOpen(false)}
-              aria-label="Cerrar menu"
-            >
+            <button className={styles.mobileCloseBtn} onClick={() => setMobileOpen(false)} aria-label="Cerrar menu">
               <ion-icon name="close-outline" />
             </button>
           </div>
@@ -307,11 +307,7 @@ export default function Header() {
                 autoComplete="off"
               />
               {searchQuery && (
-                <button
-                  className={styles.searchClear}
-                  onClick={() => { setSearchQuery(""); setSearchResults([]); }}
-                  aria-label="Limpiar"
-                >
+                <button className={styles.searchClear} onClick={() => { setSearchQuery(""); setSearchResults([]); }} aria-label="Limpiar">
                   <ion-icon name="close-circle-outline" />
                 </button>
               )}
@@ -319,15 +315,9 @@ export default function Header() {
             {searchQuery.trim().length >= 2 && (
               <div className={styles.mobileSearchResults}>
                 {searchLoading ? (
-                  <div className={styles.searchMsg}>
-                    <ion-icon name="hourglass-outline" />
-                    <span>Buscando...</span>
-                  </div>
+                  <div className={styles.searchMsg}><ion-icon name="hourglass-outline" /><span>Buscando...</span></div>
                 ) : searchResults.length === 0 ? (
-                  <div className={styles.searchMsg}>
-                    <ion-icon name="search-outline" />
-                    <span>Sin resultados para <strong>"{searchQuery}"</strong></span>
-                  </div>
+                  <div className={styles.searchMsg}><ion-icon name="search-outline" /><span>Sin resultados para <strong>"{searchQuery}"</strong></span></div>
                 ) : (
                   <>
                     <p className={styles.searchCount}>{searchResults.length} resultado{searchResults.length !== 1 ? "s" : ""}</p>
@@ -344,13 +334,8 @@ export default function Header() {
                               <span className={styles.searchItemSub}>{p.storage}</span>
                             </div>
                             <div className={styles.searchItemRight}>
-                              <strong className={styles.searchItemPrecio}>
-                                USD {Number(p.precio_usd).toLocaleString("es-AR")}
-                              </strong>
-                              <span className={styles.searchItemVer}>
-                                <ion-icon name="arrow-forward-outline" />
-                                Ver
-                              </span>
+                              <strong className={styles.searchItemPrecio}>USD {Number(p.precio_usd).toLocaleString("es-AR")}</strong>
+                              <span className={styles.searchItemVer}><ion-icon name="arrow-forward-outline" />Ver</span>
                             </div>
                           </button>
                         </li>
@@ -375,15 +360,12 @@ export default function Header() {
             ))}
           </nav>
 
-          <a
-            href={`https://wa.me/${waNum}`}
-            className={`${styles.btnWhatsapp} ${styles.mobileWa}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ion-icon name="logo-whatsapp" />
-            Contactar por WhatsApp
-          </a>
+          {waLink && (
+            <a href={waLink} className={`${styles.btnWhatsapp} ${styles.mobileWa}`} target="_blank" rel="noopener noreferrer">
+              <ion-icon name="logo-whatsapp" />
+              Contactar por WhatsApp
+            </a>
+          )}
         </div>
       </div>
     </>
