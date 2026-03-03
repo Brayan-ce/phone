@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise';
-/*
+/**/
 const db = mysql.createPool({
   host: 'localhost',
   port: 3306,
@@ -7,8 +7,8 @@ const db = mysql.createPool({
   password: '123456',
   database: 'm_importaciones',
 });
-export default db;*/
-/**/
+export default db;
+/*
 // lib/db.ts o lib/database.ts
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -17,7 +17,7 @@ const db = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
 });
-export default db;
+export default db;*/
 
 // cd 'C:\Program Files\MySQL\MySQL Server 9.0\bin\'
 // cd C:\Program Files\MySQL\MySQL Server 9.0\bin

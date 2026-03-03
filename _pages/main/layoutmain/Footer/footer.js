@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getFooterData } from "./servidor";
 import styles from "./footer.module.css";
 
-const NOMBRE_EMPRESA = "rafaela";
+const NOMBRE_EMPRESA = "Rafaela tech";
 
 export default function Footer() {
   const router = useRouter();
@@ -40,12 +40,6 @@ export default function Footer() {
               />
               <p>{config?.footer_texto || "Los mejores precios en tecnologia Apple con stock garantizado."}</p>
             </div>
-            {waLink && (
-              <a href={waLink} className={styles.footerWa} target="_blank" rel="noopener noreferrer">
-                <ion-icon name="logo-whatsapp" />
-                Consultar por WhatsApp
-              </a>
-            )}
           </div>
 
           <div className={styles.footerNav}>

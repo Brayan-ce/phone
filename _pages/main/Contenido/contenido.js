@@ -94,7 +94,6 @@ export default function Contenido() {
       {esHome && (
         <section className={styles.heroBanner}>
           <div className={styles.heroContent}>
-            <span className={styles.heroTag}>Stock actualizado</span>
             <h1>{config?.hero_titulo || "Los mejores precios en tecnologia Apple"}</h1>
             <p className={styles.heroSub}>
               {config?.hero_subtitulo || "Stock disponible para entrega inmediata. Precios sin competencia."}
@@ -117,10 +116,6 @@ export default function Contenido() {
             <div className={styles.chip}>
               <ion-icon name="shield-checkmark-outline" />
               <div><strong>Originales</strong><span>100% garantizados</span></div>
-            </div>
-            <div className={styles.chip}>
-              <ion-icon name="cube-outline" />
-              <div><strong>Stock real</strong><span>Entrega inmediata</span></div>
             </div>
             <div className={styles.chip}>
               <ion-icon name="flash-outline" />
@@ -266,7 +261,6 @@ export default function Contenido() {
         <div className={styles.trustInner}>
           {[
             { icon: "shield-checkmark-outline", titulo: "Originales garantizados", texto: "Todos nuestros equipos son 100% originales con garantia de fabrica." },
-            { icon: "cube-outline", titulo: "Stock real disponible", texto: "Lo que ves en la lista esta disponible para entrega inmediata." },
             { icon: "headset-outline", titulo: "Atencion personalizada", texto: "Te asesoramos para encontrar el equipo ideal segun tu necesidad." },
             { icon: "flash-outline", titulo: "Precios competitivos", texto: "Encontra los mejores precios del mercado con stock garantizado." },
           ].map((item) => (
