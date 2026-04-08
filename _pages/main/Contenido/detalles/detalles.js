@@ -199,17 +199,16 @@ export default function Detalles() {
           {colores.length > 0 && (
             <div className={styles.coloresWrap}>
               <p className={styles.coloresLabel}>
-                Color: <strong>{colorActivo}</strong>
+                Colores Disponibles: <strong>{colorActivo}</strong>
               </p>
               <div className={styles.colores}>
                 {colores.map((c) => (
                   <button
                     key={c.nombre}
                     className={`${styles.colorBtn} ${
-                      colorActivo === c.nombre ? styles.active : ""
+                      colorActivo === c.nombre
                     }`}
                     style={{ "--c": c.hex_color }}
-                    onClick={() => setColorActivo(c.nombre)}
                     title={c.nombre}
                     aria-label={c.nombre}
                   />
@@ -218,18 +217,6 @@ export default function Detalles() {
             </div>
           )}
 
-          <div className={styles.stockBadge}>
-            <ion-icon
-              name={
-                producto.stock > 0
-                  ? "checkmark-circle-outline"
-                  : "close-circle-outline"
-              }
-            />
-            {producto.stock > 0
-              ? `Stock disponible (${producto.stock} unidades)`
-              : "Sin stock"}
-          </div>
 
           <div className={styles.precioWrap}>
             <small>Precio</small>

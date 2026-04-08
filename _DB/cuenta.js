@@ -17,7 +17,7 @@ const password = "admin123";
 const db = await mysql.createConnection({
   host: "localhost",
   port: 3306,
-  user: "brayan",
+  user: "root",
   password: "123456",
   database: "m_importaciones",
 });
